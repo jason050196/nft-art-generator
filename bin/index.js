@@ -82,7 +82,7 @@ async function main() {
   if (config.generateMetadata) {
     await metadataSettings();
   }
-  const loadingDirectories = ora('Loading traits');
+  const loadingDirectories = ora('Loading all traits');
   loadingDirectories.color = 'yellow';
   loadingDirectories.start();
   traits = getDirectories(basePath);
@@ -396,7 +396,7 @@ async function generateImages() {
         });
         seen.push(images);
         const b64 = await mergeImages(images, { Canvas: Canvas, Image: Image });
-        await ImageDataURI.outputFile(b64, outputPath + `${id}.png`);
+        await ImageDataURI.outputFile(b64, outputPath + `${id}.gif`);
         images = [];
         id++;
       }
@@ -410,7 +410,7 @@ async function generateImages() {
       });
       generateMetadataObject(id, images);
       const b64 = await mergeImages(images, { Canvas: Canvas, Image: Image });
-      await ImageDataURI.outputFile(b64, outputPath + `${id}.png`);
+      await ImageDataURI.outputFile(b64, outputPath + `${id}.gif`);
       images = [];
       id++;
     }
