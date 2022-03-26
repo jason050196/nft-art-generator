@@ -396,7 +396,7 @@ async function generateImages() {
         });
         seen.push(images);
         const b64 = await mergeImages(images, { Canvas: Canvas, Image: Image });
-        await ImageDataURI.outputFile(b64, outputPath + `${id}.gif`);
+        await ImageDataURI.outputFile(b64, outputPath + `${id}.png`);
         images = [];
         id++;
       }
@@ -410,7 +410,7 @@ async function generateImages() {
       });
       generateMetadataObject(id, images);
       const b64 = await mergeImages(images, { Canvas: Canvas, Image: Image });
-      await ImageDataURI.outputFile(b64, outputPath + `${id}.gif`);
+      await ImageDataURI.outputFile(b64, outputPath + `${id}.png`);
       images = [];
       id++;
     }
